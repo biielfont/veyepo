@@ -24,25 +24,25 @@ VeyEpo és un script de bash dissenyat per ajudar els estudiants a evitar que el
 
 ## Usage
 
-1. Clone the repository:
+1. Clona el repositori:
 
    ```bash
    git clone https://github.com/biielfont/VeyEpo.git
    ```
 
-2. Navigate to the repository:
+2. Navega a la carpeta del repositori:
 
    ```bash
    cd VeyEpo
    ```
 
-3. Make the script executable:
+3. Donali el permisos necessaris:
 
    ```bash
    chmod +x veyepo.sh
    ```
 
-4. Run the script:
+4. Executal:
 
    ```bash
    ./veyepo.sh
