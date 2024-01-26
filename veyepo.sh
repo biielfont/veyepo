@@ -1,17 +1,24 @@
 #!/bin/bash
-echo ready
-while true
-do
-    sleep 1s
-    processes=("lock-screen" "veyon-worker" "socat" "epoptes-client")  # Add more process names here
-    for process in "${processes[@]}"
-    do
-        if pgrep -x "$process" > /dev/null
-        then
-            echo -e "Hem petat: \033[1m$process\033[0m"
-            pkill "$process"
-        else
-            echo "Buscant process: $process"
-        fi
-    done
+
+# Array of process names to search for
+process_names=("epoptes-client" "socat" "veyon-worker")
+
+while true; do
+  for name in "${process_names[@]}"; do
+    # Search for the PID of the process
+    pid=$(ps aux | grep "$name" | grep -v grep | awk '{print $2}')
+
+    # Check if the PID exists
+    if [[ -z $pid ]]; then
+      echo "No $name process found."
+    else
+      echo "Found $name process with PID: $pid"
+      # Kill the process
+      kill -7 $pid
+      echo "Killed $name process with PID: $pid"
+    fi
+  done
+
+  # Sleep for 1 second
+  sleep 1
 done
