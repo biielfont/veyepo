@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# Function to retrieve the content of the version file from GitHub
+check_version() {
+  # Replace the placeholders with the actual GitHub file URL
+  github_file_url="https://raw.githubusercontent.com/biielfont/veyepo/main/version"
+  
+  # Use curl to fetch the content of the version file
+  retrieved_version=$(curl -s $github_file_url)
+  
+  # Current version used in the script
+  current_version="1.0"  # Replace with the actual current version used in the script
+  
+  # Compare the retrieved version with the current version
+  if [[ "$retrieved_version" == "$current_version" ]]; then
+    echo "You are up to date. Current version: $current_version"
+  else
+    echo "You need an update. Current version: $current_version, Latest version: $retrieved_version"
+  fi
+}
 # Array of process names to search for
 process_names=("epoptes-client" "socat" "veyon-worker")
 
