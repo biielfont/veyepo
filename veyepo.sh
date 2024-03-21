@@ -3,37 +3,55 @@
 # Function to retrieve the content of the version file from GitHub
 check_version() {
   # Replace the placeholders with the actual GitHub file URL
-  github_file_url="https://raw.githubusercontent.com/biielfont/veyepo/main/version"
+  version_url="https://raw.githubusercontent.com/biielfont/veyepo/main/version"
   
   # Use curl to fetch the content of the version file
-  retrieved_version=$(curl -s $github_file_url)
+  retrieved_version=$(curl -s $version_url)
   
   # Current version used in the script
-  current_version="1.0"  # Replace with the actual current version used in the script
+  current_version="2.0"  # Replace with the actual current version used in the script
   
   # Compare the retrieved version with the current version
   if [[ "$retrieved_version" == "$current_version" ]]; then
-    echo "You are up to date. Current version: $current_version"
+    echo "[VeyEpo] Estàs al dia. Versió actual: $current_version"
   else
-    echo "You need an update. Current version: $current_version, Latest version: $retrieved_version"
+    echo "Necessites una actualització. Versió actual: $current_version, Ultima versió: $retrieved_version"
+    read -p "Vols actualitzar? (S/N): " choice
+    if [[ "$choice" == "S" || "$choice" == "s" ]]; then
+      # Use curl to download the updated file
+      rm -rf "${0##*/}"
+      curl -o "${0##*/}" -L https://raw.githubusercontent.com/biielfont/veyepo/main/veyepo.sh
+      # Give it permissions
+      chmod +x "${0##*/}"
+      # Clear the terminal and give a message.
+      clear
+      echo "[VeyEpo] Actualitzat a la ultima versió, v$current_version"
+      # Execute the new script
+      ./"${0##*/}"
+    else
+      echo "Sortint de l'aplicació."
+      exit 0
+    fi
   fi
 }
+
 # Array of process names to search for
 process_names=("epoptes-client" "socat" "veyon-worker")
 
 while true; do
+check_version
   for name in "${process_names[@]}"; do
     # Search for the PID of the process
     pid=$(pgrep "$name")
 
     # Check if the PID exists
     if [[ -z $pid ]]; then
-      echo "No $name process found."
+      echo "[VeyEpoSearh] No s'ha trobat el procés $name"
     else
-      echo "Found $name process with PID: $pid"
+      echo "[VeyEpoSearh] S'ha trobat el procés $name amb el PID: $pid"
       # Kill the process
-      kill -9 $pid
-      echo "Killed $name process with PID: $pid"
+      kill -7 $pid
+      echo "[VeyEpoKill] S'ha matat el procés $name amb PID: $pid"
     fi
   done
 
