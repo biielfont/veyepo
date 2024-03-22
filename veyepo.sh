@@ -9,7 +9,7 @@ check_version() {
   retrieved_version=$(curl -s $version_url)
   
   # Current version used in the script
-  current_version="2.0"  # Replace with the actual current version used in the script
+  current_version="2.0.1"  # Replace with the actual current version used in the script
   
   # Compare the retrieved version with the current version
   if [[ "$retrieved_version" == "$current_version" ]]; then
@@ -35,11 +35,13 @@ check_version() {
   fi
 }
 
+# Starting checkversion once in the start.
+check_version
+
 # Array of process names to search for
 process_names=("epoptes-client" "socat" "veyon-worker")
 
 while true; do
-check_version
   for name in "${process_names[@]}"; do
     # Search for the PID of the process
     pid=$(pgrep "$name")
