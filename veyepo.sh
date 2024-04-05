@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# Function to retrieve the content of the version file from GitHub
+# Retrieving the content of the version file from GitHub
 check_version() {
-  # Replace the placeholders with the actual GitHub file URL
   version_url="https://raw.githubusercontent.com/biielfont/veyepo/main/version"
   
   # Use curl to fetch the content of the version file
   retrieved_version=$(curl -s $version_url)
   
   # Current version used in the script
-  current_version="2.0.1"  # Replace with the actual current version used in the script
+  current_version="2.0.2"  
   
   # Compare the retrieved version with the current version
   if [[ "$retrieved_version" == "$current_version" ]]; then
@@ -43,8 +42,8 @@ process_names=("epoptes-client" "socat" "veyon-worker")
 
 while true; do
   for name in "${process_names[@]}"; do
-    # Search for the PID of the process
-    pid=$(pgrep "$name")
+    # Search for the PID of the process using pidof
+    pid=$(pidof "$name")
 
     # Check if the PID exists
     if [[ -z $pid ]]; then
@@ -60,3 +59,4 @@ while true; do
   # Sleep for 1 second
   sleep 1
 done
+
