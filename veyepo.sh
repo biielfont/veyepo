@@ -8,7 +8,7 @@ check_version() {
   retrieved_version=$(curl -s $version_url)
   
   # Current version used in the script
-  current_version="2.0.2"  
+  current_version="2.1.0"  
   
   # Compare the retrieved version with the current version
   if [[ "$retrieved_version" == "$current_version" ]]; then
@@ -34,6 +34,14 @@ check_version() {
   fi
 }
 
+# Define color codes
+RED='\033[0;31m'
+GREEN='\033[0;92m'
+ORANGE='\033[0;33m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
+
 # Starting checkversion once in the start.
 check_version
 
@@ -47,16 +55,15 @@ while true; do
 
     # Check if the PID exists
     if [[ -z $pid ]]; then
-      echo "[VeyEpoSearh] No s'ha trobat el procés $name"
+      echo -e "${GREEN}[VeyEpoSearch]${NC} No s'ha trobat el procés $name$"
     else
-      echo "[VeyEpoSearh] S'ha trobat el procés $name amb el PID: $pid"
+      echo -e "${ORANGE}[VeyEpoSearch]${NC} S'ha trobat el procés ${BOLD}$name${NC} amb el PID: $pid"
       # Kill the process
       kill -7 $pid
-      echo "[VeyEpoKill] S'ha matat el procés $name amb PID: $pid"
+      echo -e "${RED}[VeyEpoKill]${NC} S'ha matat el procés ${BOLD}$name${NC} amb PID: $pid"
     fi
   done
 
   # Sleep for 1 second
   sleep 1
 done
-
