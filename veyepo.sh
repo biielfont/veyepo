@@ -8,7 +8,7 @@ check_version() {
   retrieved_version=$(curl -s $version_url)
   
   # Current version used in the script
-  current_version="2.1.0"  
+  current_version="2.1.1"  
   
   # Compare the retrieved version with the current version
   if [[ "$retrieved_version" == "$current_version" ]]; then
@@ -55,7 +55,7 @@ while true; do
 
     # Check if the PID exists
     if [[ -z $pid ]]; then
-      echo -e "${GREEN}[VeyEpoSearch]${NC} No s'ha trobat el procés $name$"
+      echo -e "${GREEN}[VeyEpoSearch]${NC} No s'ha trobat el procés $name"
     else
       echo -e "${ORANGE}[VeyEpoSearch]${NC} S'ha trobat el procés ${BOLD}$name${NC} amb el PID: $pid"
       # Kill the process
