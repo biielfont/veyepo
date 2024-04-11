@@ -1,14 +1,27 @@
-# VeyEpo
+<h1 align="center">
+  <br>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://i.ibb.co/kmktG2K/Untitled-1.png" alt="Markdownify" width="300"></a>
+  <br>
+  VeyEpo
+  <br>
+</h1>
+  <p align="center"> VeyEpo és un script de bash dissenyat per ajudar els estudiants a evitar que els professors vegin les seves pantalles utilitzant Veyon o Epoptes a l'aula. Permet als estudiants participar en activitats no disruptives durant l'hora de classe.</p>
+
+<h4 align="center">
+  
 [![GitHub Stars](https://img.shields.io/github/stars/biielfont/veyepo.svg)](https://github.com/biielfont/veyepo/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/biielfont/veyepo.svg)](https://github.com/biielfont/veyepo/issues) [![Current Version](https://img.shields.io/badge/version-2.1.1-green.svg)](https://github.com/biielfont/veyepo) 
+  
+</h4>
 
-VeyEpo és un script de bash dissenyat per ajudar els estudiants a evitar que els professors vegin les seves pantalles utilitzant Veyon o Epoptes a l'aula. Permet als estudiants participar en activitats no disruptives durant l'hora de classe.
+<p align="center">
+  <a href="#característiques">Característiques</a> •
+  <a href="#requisits">Requisits</a> •
+  <a href="#ús">Ús</a> •
+  <a href="#contribuint">Contribuint</a> •
+  <a href="#llicència">Llicència</a>
+</p>
 
-## Taula de continguts
-- [Característiques](#característiques)
-- [Requisits](#requisits)
-- [Ús](#ús)
-- [Contribuint](#contribuint)
-- [Llicència](#llicència)
+
 
 ## Característiques
 
