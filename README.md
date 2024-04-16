@@ -6,12 +6,15 @@
   <br>
 </h1>
   <p align="center"> VeyEpo és un script de bash dissenyat per ajudar els estudiants a evitar que els professors vegin les seves pantalles utilitzant Veyon o Epoptes a l'aula. Permet als estudiants participar en activitats no disruptives durant l'hora de classe.</p>
-
+<p align="center">
+<img src="https://iili.io/J83lwlf.png" alt="image" border="0" align="center" width="500">
+</p>
+  
 <h4 align="center">
   
 [![GitHub Stars](https://img.shields.io/github/stars/biielfont/veyepo.svg)](https://github.com/biielfont/veyepo/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/biielfont/veyepo.svg)](https://github.com/biielfont/veyepo/issues) [![Current Version](https://img.shields.io/badge/version-2.1.1-green.svg)](https://github.com/biielfont/veyepo) 
-  
 </h4>
+
 
 <p align="center">
   <a href="#característiques">Característiques</a> •
